@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "SessionStart": [
+      { "hooks": [ { "type": "command", "command": "$HOME/.claude/skills/workflow-flow/hooks/session-context.sh" } ] }
+    ],
+    "PreToolUse": [
+      { "matcher": "Bash",
+        "hooks": [
+          { "type": "command", "command": "$HOME/.claude/skills/workflow-flow/hooks/tdd-guard.sh" },
+          { "type": "command", "command": "$HOME/.claude/skills/workflow-flow/hooks/no-push-main.sh" }
+        ] },
+      { "matcher": "Agent",
+        "hooks": [ { "type": "command", "command": "$HOME/.claude/skills/workflow-flow/hooks/no-prejudge.sh" } ] }
+    ]
+  }
+}
